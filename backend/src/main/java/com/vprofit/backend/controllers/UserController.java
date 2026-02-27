@@ -41,4 +41,15 @@ public class UserController {
     User createdUser = userService.create(newUser);
     return ResponseEntity.ok(createdUser);
   }
+  @PatchMapping("/{id}")
+  public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User newUserData){
+    User updatedUser = userService.update(id, newUserData);
+    return ResponseEntity.ok(updatedUser);
+  }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Void> deleteUser(@PathVariable Long id){
+    userService.deactivate(id);
+    return ResponseEntity.noContent().build();
+  }
 }

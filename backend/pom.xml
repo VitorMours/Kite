@@ -27,12 +27,24 @@
 			<artifactId>spring-boot-starter-web</artifactId> <!-- Changed from webmvc -->
 		</dependency>
 
+		<!-- Source: https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
+		<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-core</artifactId>
+				<version>6.5.8</version>
+		</dependency>
+
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		
+		<!-- Source: https://mvnrepository.com/artifact/com.auth0/java-jwt -->
+		<dependency>
+				<groupId>com.auth0</groupId>
+				<artifactId>java-jwt</artifactId>
+				<version>4.5.0</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
