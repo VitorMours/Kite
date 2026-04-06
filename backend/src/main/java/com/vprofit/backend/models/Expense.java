@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Column;
+// TODO: Need to refactor
 
 @Entity 
 @Table(name = "tb_expenses")

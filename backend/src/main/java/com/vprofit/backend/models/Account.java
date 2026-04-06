@@ -2,6 +2,7 @@ package com.vprofit.backend.models;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.Date;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -12,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
+// TODO: Need to refactor
 
 @Entity 
 @Table(name="tb_account")
@@ -25,6 +27,7 @@ public class Account implements Serializable {
 
   @Column 
   private String name; 
+  
   @Column 
   private boolean multipleUsers;
   
@@ -32,9 +35,10 @@ public class Account implements Serializable {
   private boolean isActive;
 
   @Column 
-  private Instant createdAt;
+  private Date createdAt;
+  
   @Column 
-  private Instant updatedAt;
+  private Date updatedAt;
 
   @ManyToOne(optional = false)
   @JoinColumn(nullable = false)
@@ -47,6 +51,10 @@ public class Account implements Serializable {
       throw new IllegalArgumentException("Account precisa ter um usuario para existir");
     }
     this.user = user;
+    this.createdAt = new Date();
+    this.updatedAt = new Date();
+    this.isActive = true;
+    this.multipleUsers = false;
   }
 
   // Getters e Setters 
@@ -63,31 +71,45 @@ public class Account implements Serializable {
   public boolean getMultipleUsers(){
     return multipleUsers;
   }
-  public Instant getUpdatedAt() {
+  public Date getUpdatedAt() {
     return updatedAt;
   }
-  public Instant getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
   // Setters 
   public void setName(String name) {
+    if(name == null || name.equals("")){
+      throw new IllegalArgumentException("O valor do nome da conta nao pode ser nulo ou vazio");
+    }
     this.name = name;
   }
   public void setUser(User user) {
+    if(user == null || user.equals("")){
+      throw new IllegalArgumentException("O valor do usuario da conta nao pode ser nulo ou vazio");
+    }
     this.user = user;
   }
-  public void setIsActive(boolean isActive) {
-    this.isActive = isActive;
+
+  public void setIsActive(boolean newIsActive) {
+    this.isActive = newIsActive;
   }
+
   public void setMultipleUsers(boolean multipleUsers) {
     this.multipleUsers = multipleUsers;
   }
-  public void setCreatedAt(Instant createdAt) {
-    this.createdAt = createdAt;
+ 
+  public void setCreatedAt(Date newCreatedAt) {
+    if(newCreatedAt == null || newCreatedAt.equals("")){
+      throw new IllegalArgumentException("O valor da data de criação da conta nao pode ser nulo ou vazio");
+    }
+    this.createdAt = newCreatedAt;
   }
-  public void setUpdatedAt(Instant updatedAt) {
-    this.updatedAt = updatedAt;
+  public void setUpdatedAt(Date newUpdatedAt) {
+    if(newUpdatedAt == null || newUpdatedAt.equals("")){
+      throw new IllegalArgumentException("O valor da data de atualização da conta nao pode ser nulo ou vazio");
+    }
+    this.updatedAt = newUpdatedAt;
   }
-
 }
