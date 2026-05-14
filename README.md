@@ -1,4 +1,4 @@
-# Nickels
+# Kite
 
 <p  align="center">
   <a href="https://go-skill-icons.vercel.app/">
@@ -8,7 +8,7 @@
   </a>
 </p>
 
-O **Nickels** surgiu de uma ideia, de criar uma ferramenta de processamento de contratos de troca 
+O **Kite** surgiu de uma ideia, de criar uma ferramenta de processamento de contratos de troca 
 dentro do csgo, como forma de achar as trocas mais eficientes, e mais lucrativas dentro de um sistema. Isso também 
 permite determinar a forma como os usuários podem ter mais chances de lucrarem com seus atuais inventários. A ideia é 
 que por meio de ferramentas como o **Auto-Gamble**, ele consiga ver todas as possibilidades de contratos de troca, de 
